@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nan/utils/constant.dart';
 
 class ProjectCard extends StatelessWidget {
   final IconData icon;
@@ -19,7 +20,7 @@ class ProjectCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 75,
-      color: Colors.white38,
+      color: contColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -38,7 +39,8 @@ class ProjectCard extends StatelessWidget {
               )
             ],
           ),
-          Text(projectName, style: TextStyle(color: Colors.black)),
+          Text(projectName,
+              style: TextStyle(color: Colors.black, fontSize: 20)),
           IconButton(onPressed: () {}, icon: Icon(Icons.arrow_forward_ios))
         ],
       ),
