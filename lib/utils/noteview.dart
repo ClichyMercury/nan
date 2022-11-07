@@ -31,8 +31,7 @@ class PointView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
-      width: 150,
+      constraints: const BoxConstraints(minHeight: 150, minWidth: 150),
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(10.0)),

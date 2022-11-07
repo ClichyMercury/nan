@@ -7,6 +7,9 @@ import 'package:nan/views/NavBarView/quiz.dart';
 import 'package:nan/utils/drawer.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
+import '../utils/NavBar/navigation_bar_item.dart';
+import '../utils/svg_icons.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({
     Key? key,
@@ -62,36 +65,43 @@ class _MainScreenState extends State<MainScreen> {
               index: _currentIndex,
               children: screens,
             ),
-            bottomNavigationBar: SalomonBottomBar(
-              selectedItemColor: nangreen,
-              unselectedItemColor: nanpurple,
-              currentIndex: _currentIndex,
-              onTap: (i) => setState(() => _currentIndex = i),
-              items: [
-                /// Home
-                SalomonBottomBarItem(
-                  icon: Icon(Icons.home),
-                  title: Text("Home"),
-                ),
-
-                /// Courses
-                SalomonBottomBarItem(
-                  icon: Icon(Icons.feed),
-                  title: Text("Courses"),
-                ),
-
-                /// Quiz
-                SalomonBottomBarItem(
-                  icon: Icon(Icons.quiz),
-                  title: Text("Quiz"),
-                ),
-
-                /// Projects
-                SalomonBottomBarItem(
-                  icon: Icon(Icons.view_compact_alt_outlined),
-                  title: Text("Projects"),
-                ),
-              ],
+            bottomNavigationBar: Container(
+              height: 50,
+              color: const Color.fromRGBO(26, 28, 52, 1),
+              // padding: const EdgeInsets.only(left: 10, right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  NavigationBarItem(
+                    icon: SvgIcons.homeAlt,
+                    text: 'Home',
+                    changeIndex: _setIndex,
+                    index: 0,
+                    currentIndex: _currentIndex,
+                  ),
+                  NavigationBarItem(
+                    icon: SvgIcons.course,
+                    text: 'Courses',
+                    changeIndex: _setIndex,
+                    index: 1,
+                    currentIndex: _currentIndex,
+                  ),
+                  NavigationBarItem(
+                    icon: SvgIcons.thinking,
+                    text: 'Quizs',
+                    changeIndex: _setIndex,
+                    index: 2,
+                    currentIndex: _currentIndex,
+                  ),
+                  NavigationBarItem(
+                    icon: SvgIcons.project,
+                    text: 'Projects',
+                    index: 3,
+                    currentIndex: _currentIndex,
+                    changeIndex: _setIndex,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
